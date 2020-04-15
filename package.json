@@ -1,0 +1,23 @@
+{
+  "name": "jogabilidadejs",
+  "version": "1.0.0",
+  "description": "JogabilidadeJS é uma biblioteca javascript não-oficial que se conecta a todo conteúdo e metadado relevante do Jogabilidade.",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edmilsonrobson/jogabilidade-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edmilsonrobson/jogabilidade-js/issues"
+  },
+  "homepage": "https://github.com/edmilsonrobson/jogabilidade-js#readme"
+}

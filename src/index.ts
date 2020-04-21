@@ -1,15 +1,16 @@
-import PodcastManager from "./managers/PodcastManager/PodcastManager";
+import PodcastManager from "./managers/PodcastManager";
+import TwitchManager from "./managers/TwitchManager";
 import Config from "./config";
 
-console.log("Running JogabilidadeJS");
+const run = async () => {
+  /* const manager = new TwitchManager({
+    twitchClientId: "7t8w5vr1dzmpstdjj37xtsyrw7il8z",
+    twitchUserId: "36830116",
+  });
 
-async function doTests() {
-  const podcastManager = new PodcastManager();
-  console.log("Fetching games...");
-  await podcastManager.fetchGames(Config.FEED_GAMES);
-  console.log("Fetched");
-}
+  const videos = await manager.fetchVideos(); */
+};
 
-doTests();
+run();
 
-module.exports = {};
+export { PodcastManager, Config, TwitchManager };

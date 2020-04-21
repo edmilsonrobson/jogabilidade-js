@@ -79,6 +79,8 @@ typings/
 #vscode
 .vscode/
 
+build/
+
 # rollup.js default build output
 dist/
 

@@ -7,7 +7,7 @@ describe("PodcastManager class", () => {
 
   describe("fetch games", () => {
     test("should parse correct number of podcasts from games test RSS", async () => {
-      const podcasts = await manager.fetchGames(gamesRss);
+      const podcasts = await manager.fetchPodcasts(gamesRss);
       const podcastsWithTimestamps = podcasts.filter(
         (podcast) => podcast.topicTimestamps.length > 0
       );
@@ -80,7 +80,6 @@ describe("PodcastManager class", () => {
     });
 
     test("should handle invalidly formatted content", () => {
-      const manager = new PodcastManager();
       const contentWithInvalidFormat = `
         <li>This is a topic without a proper timestamp at the end!</li>
         <li>02:20:22</li>

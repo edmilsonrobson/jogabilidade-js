@@ -6,7 +6,7 @@ import { IPodcast, ITimestamp } from "../../constants/types";
 import moment from "moment";
 
 class PodcastManager {
-  parser: Parser;
+  private parser: Parser;
 
   constructor() {
     this.parser = new Parser();
@@ -38,8 +38,12 @@ class PodcastManager {
     return topicTimestamps;
   }
 
-  async fetchGames(source: string): Promise<IPodcast[]> {
-    let feed = undefined;
+  async fetchNonGames(source: string): Promise<IPodcast[]> {
+    return this.fetchPodcasts(Config.FEED_NON_GAMES);
+  }
+
+  async fetchPodcasts(source: string): Promise<IPodcast[]> {
+    let feed = null;
     if (/^http:\/\/$/.test(source)) {
       feed = await this.parser.parseURL(source);
     } else {
@@ -64,6 +68,10 @@ class PodcastManager {
     });
 
     return podcasts;
+  }
+
+  async fetchGames(): Promise<IPodcast[]> {
+    return this.fetchPodcasts(Config.FEED_GAMES);
   }
 }
 

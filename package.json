@@ -1,9 +1,9 @@
 {
   "name": "jogabilidadejs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "JogabilidadeJS é uma biblioteca javascript não-oficial que se conecta a todo conteúdo e metadado relevante do Jogabilidade.",
-  "main": "index.js",
-  "types": "src/constants/types.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "dependencies": {
     "@types/lodash": "^4.14.150",
     "@types/xml2js": "^0.4.5",
@@ -27,7 +27,6 @@
   },
   "prepare": "npm run build",
   "prepublishOnly": "npm test && npm run lint",
-  "preversion": "npm run lint",
   "scripts": {
     "test": "jest",
     "build": "tsc",

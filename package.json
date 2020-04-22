@@ -1,6 +1,6 @@
 {
   "name": "jogabilidadejs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "JogabilidadeJS é uma biblioteca javascript não-oficial que se conecta a todo conteúdo e metadado relevante do Jogabilidade.",
   "main": "build/index.js",
   "types": "build/index.d.ts",

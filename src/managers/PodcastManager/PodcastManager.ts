@@ -8,8 +8,8 @@ import moment from "moment";
 class PodcastManager {
   private parser: Parser;
 
-  constructor() {
-    this.parser = new Parser();
+  constructor(parser?: Parser) {
+    this.parser = parser ?? new Parser();
   }
 
   parseTopicTimestamps(content: string): ITimestamp[] {
@@ -44,7 +44,7 @@ class PodcastManager {
 
   async fetchPodcasts(source: string): Promise<IPodcast[]> {
     let feed = null;
-    if (/^http:\/\/$/.test(source)) {
+    if (/^https?:\/\/.*$/.test(source)) {
       feed = await this.parser.parseURL(source);
     } else {
       feed = await this.parser.parseString(source);

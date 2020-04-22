@@ -1,6 +1,6 @@
 import TwitchManager from "../TwitchManager";
 
-describe("PodcastManager class", () => {
+describe("TwitchManager class", () => {
   test("should properly receive configuration on constructor", () => {
     const manager = new TwitchManager({
       twitchClientId: "dummyClientId",

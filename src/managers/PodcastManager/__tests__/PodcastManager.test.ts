@@ -1,6 +1,7 @@
 import PodcastManager from "../PodcastManager";
 import { ITimestamp } from "../../../constants/types";
 import { gamesRss } from "../utils";
+import Parser from "rss-parser";
 
 describe("PodcastManager class", () => {
   const manager = new PodcastManager();
@@ -18,6 +19,20 @@ describe("PodcastManager class", () => {
       expect(podcasts.length).toBe(373);
       expect(podcastsWithTimestamps.length).toBeGreaterThan(0); // * The newer ones have proper timestamps
       expect(podcastsWithoutTimestamps.length).toBeGreaterThan(0); // * Some old ones do not have timestamps
+    });
+
+    test("should correctly parse URL from config on fetchGames method", async () => {
+      const mockedParser = new Parser();
+      jest.spyOn(mockedParser, "parseURL").mockResolvedValue([]);
+      jest.spyOn(mockedParser, "parseString").mockResolvedValue([]);
+
+      const mockableManager = new PodcastManager(mockedParser);
+
+      const podcasts = await mockableManager.fetchGames();
+
+      expect(podcasts.length).toBe(0);
+      expect(mockedParser.parseURL).toHaveBeenCalledTimes(1);
+      expect(mockedParser.parseString).toHaveBeenCalledTimes(0);
     });
   });
 
